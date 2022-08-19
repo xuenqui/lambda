@@ -1,0 +1,243 @@
+{
+  "type": "record",
+  "name": "Person",
+  "namespace": "financialproducts.person.v1",
+  "fields": [
+    {
+      "name": "name",
+      "doc": "The person's name",
+      "type": "string"
+    },
+    {
+      "name": "type",
+      "type": {
+        "name": "PersonTypeEnum",
+        "doc": "The person's type",
+        "type": "enum",
+        "symbols": [
+          "PF",
+          "PJ"
+        ]
+      }
+    },
+    {
+      "name": "documentNumber",
+      "doc": "The person's document number",
+      "type": "string"
+    },
+    {
+      "name": "birthDate",
+      "doc": "The person's birthdate",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "individualPerson",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "IndividualPerson",
+          "namespace": "financialproducts.person.v1",
+          "fields": [
+            {
+              "name": "pep",
+              "doc": "If the person is pep or not.",
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            {
+              "name": "motherName",
+              "doc": "The mother's name.",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "profession",
+              "doc": "The person's profession.",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "averageIncome",
+              "doc": "The person's average income.",
+              "type": [
+                "null",
+                "double"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "legalPerson",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "LegalPerson",
+          "namespace": "financialproducts.person.v1",
+          "fields": [
+            {
+              "name": "cnae",
+              "doc": "The person's cnae.",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "stateRegistration",
+              "doc": "The person's state registration.",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "companyType",
+              "type": [
+                "null",
+                {
+                  "type": "enum",
+                  "name": "CompanyTypeEnum",
+                  "doc": "The person's company type.",
+                  "symbols": [
+                    "EPP",
+                    "ME"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "address",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "Address",
+          "type": "record",
+          "namespace": "financialproducts.person.v1",
+          "fields": [
+            {
+              "name": "street",
+              "doc": "The address' name.",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "number",
+              "doc": "The address' number.",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "complement",
+              "doc": "The address' complement.",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "district",
+              "doc": "The address' district.",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "zipCode",
+              "doc": "The address' zipcode.",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "city",
+              "doc": "The address' city.",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "state",
+              "doc": "The address' state.",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "country",
+              "doc": "The address' country.",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          ]
+        },
+        "default": []
+      }
+    },
+    {
+      "name": "contacts",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "Contact",
+          "type": "record",
+          "namespace": "financialproducts.person.v1",
+          "fields": [
+            {
+              "name": "number",
+              "doc": "The contact's number.",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "type",
+              "type": [
+                "null",
+                {
+                  "name": "ContactTypeEnum",
+                  "type": "enum",
+                  "doc": "The contact's type.",
+                  "symbols": [
+                    "RESIDENTIAL",
+                    "COMMERCIAL",
+                    "CONTACT",
+                    "MESSAGE"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "default": []
+      }
+    }
+  ]
+}
